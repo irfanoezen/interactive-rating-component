@@ -5,16 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
     <title>Frontend Mentor | Interactive rating component</title>
     <script src="script.js" defer></script>
   </head>
   <body>
     <main class="rating-card">
       <section class="rating-card__state rating-card__state--rating">
-        <img class="rating-card__icon" src="assets/images/icon-star.svg" alt="Rating star icon" />
+        <div class="rating-card__icon-container">
+          <img
+            class="rating-card__icon"
+            src="assets/images/icon-star.svg"
+            alt="Rating star icon"
+          />
+        </div>
         <h1 class="rating-card__title">How did we do?</h1>
-        <p class="rating-card__description">Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+        <p class="rating-card__description">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
         <div class="rating-card__choices" aria-label="Rating options">
           <button class="rating-card__choice" type="button">1</button>
           <button class="rating-card__choice" type="button">2</button>
@@ -22,13 +36,23 @@
           <button class="rating-card__choice" type="button">4</button>
           <button class="rating-card__choice" type="button">5</button>
         </div>
-        <button class="rating-card__submit" type="button">Submit</button>
+        <button class="rating-card__submit" id="rating-card__submit" type="button">Submit</button>
       </section>
       <section class="rating-card__state rating-card__state--thank-you" hidden>
-        <img class="rating-card__illustration" src="assets/images/illustration-thank-you.svg" alt="Thank you illustration" />
-        <p class="rating-card__selection">You selected <span class="rating-card__selected-value"></span> out of 5</p>
+        <img
+          class="rating-card__illustration"
+          src="assets/images/illustration-thank-you.svg"
+          alt="Thank you illustration"
+        />
+        <p class="rating-card__selection">
+          You selected <span class="rating-card__selected-value"></span> out of
+          5
+        </p>
         <h2 class="rating-card__title">Thank you!</h2>
-        <p class="rating-card__description">We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p>
+        <p class="rating-card__description">
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don't hesitate to get in touch!
+        </p>
       </section>
     </main>
   </body>

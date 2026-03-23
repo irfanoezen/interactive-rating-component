@@ -1,14 +1,54 @@
+:root {
+	--grey-950: #131518;
+	--grey-900: #262e38;
+	--grey-500: #969fad;
+	--orange: #fc7614;
+	--gradient: linear-gradient(#232a34, #181e27);
+}
+
+/* overpass-regular - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Overpass";
+	font-style: normal;
+	font-weight: 400;
+	src: url("assets/fonts/overpass-v19-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* overpass-600 - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Overpass";
+	font-style: normal;
+	font-weight: 600;
+	src: url("assets/fonts/overpass-v19-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* overpass-700 - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Overpass";
+	font-style: normal;
+	font-weight: 700;
+	src: url("assets/fonts/overpass-v19-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+*,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 *:not(dialog) {
-  margin: 0;
+	margin: 0;
 }
 
 body {
-  line-height: 1;
+	display: grid;
+	place-content: center;
+	height: 100vh;
+	font-family: "Overpass", Arial, Helvetica, sans-serif;
+	background-color: var(--grey-950);
+	color: #fff;
+	line-height: 1;
 }
 
 img,
@@ -16,14 +56,183 @@ picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 
 input,
 button,
 textarea,
 select {
-  font: inherit;
+	font: inherit;
+}
+
+.rating-card {
+	max-width: 327px;
+	margin-inline: 24px;
+}
+
+.rating-card__state--rating {
+	background: var(--gradient);
+	padding: 24px;
+	border-radius: 15px;
+}
+
+.rating-card__icon-container {
+	width: 40px;
+	height: 40px;
+	background-color: var(--grey-900);
+	display: grid;
+	place-content: center;
+	border-radius: 50%;
+	margin-block-end: 24px;
+}
+
+.rating-card__icon {
+	width: clamp(0.875rem, 0.8392857142857143rem + 0.17857142857142858vw, 1rem);
+}
+
+.rating-card__title {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.875;
+	margin-block-end: 16px;
+}
+
+.rating-card__description {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.375;
+	color: var(--grey-500);
+	margin-block-end: 16px;
+}
+
+.rating-card__choices {
+	display: flex;
+	justify-content: space-between;
+	margin-block-end: 24px;
+}
+
+.rating-card__choice {
+	border: none;
+	border-radius: 50%;
+	width: 42px;
+	height: 42px;
+	background-color: var(--grey-900);
+	color: var(--grey-500);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.125;
+	letter-spacing: 1.87px;
+	padding-block-start: 4px;
+}
+
+.rating-card__choice:hover,
+.rating-card__submit:hover {
+	background-color: #fff;
+	cursor: pointer;
+	color: var(--grey-950);
+}
+
+.rating-card__choice:focus,
+.rating-card__submit:focus {
+	background-color: #fff;
+	cursor: pointer;
+  color: var(--grey-950);
+}
+
+.rating-card__choice.rating-card__choice--selected {
+	background-color: var(--orange);
+	color: #fff;
+}
+
+.rating-card__submit {
+	border: none;
+	width: 100%;
+	padding-block: 16px;
+	border-radius: 30px;
+	background-color: var(--orange);
+	text-transform: uppercase;
+	color: var(--grey-950);
+	font-size: 14px;
+	line-height: 1.125;
+	letter-spacing: 1.87px;
+}
+
+.rating-card__state--thank-you {
+	background: var(--gradient);
+	border-radius: 15px;
+	padding: 32px 24px;
+	text-align: center;
+}
+
+.rating-card__illustration {
+	max-width: 144px;
+	margin-inline: auto;
+	margin-block-end: 24px;
+}
+
+.rating-card__selection {
+	display: inline-block;
+	background-color: var(--grey-900);
+	padding: 6px 16px;
+	border-radius: 22.5px;
+	font-size: 14px;
+	line-height: 1.375;
+	color: var(--orange);
+	margin-block-end: 24px;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  margin-block-start: 12px;
+}
+
+@media screen and (min-width: 768px) {
+	.rating-card {
+		max-width: 412px;
+	}
+
+	.rating-card__state--rating {
+		padding: 32px;
+	}
+
+	.rating-card__icon-container {
+		margin-block-end: 32px;
+		width: 48px;
+		height: 48px;
+	}
+
+	.rating-card__title {
+		font-size: 28px;
+	}
+
+	.rating-card__description {
+		font-size: 15px;
+	}
+
+	.rating-card__choices {
+		margin-block-end: 32px;
+	}
+
+	.rating-card__choice {
+		width: 51px;
+		height: 51px;
+	}
+
+	.rating-card__state--thank-you {
+    padding: 40px 36px;
+	}
+
+	.rating-card__illustration {
+    max-width: 162px;
+    margin-block-end: 32px;
+	}
+
+	.rating-card__selection {
+    margin-block-end: 32px;
+	}
 }
